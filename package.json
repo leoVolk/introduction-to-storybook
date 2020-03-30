@@ -1,0 +1,32 @@
+{
+  "name": "introduction-to-storybook",
+  "version": "1.0.0",
+  "description": "An introduction to storybook.js with Nuxt.js and Vue.js",
+  "author": "Leonhard Volkmann",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.9.0",
+    "jquery": "^3.4.1",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/vue": "^5.3.17",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2"
+  }
+}
