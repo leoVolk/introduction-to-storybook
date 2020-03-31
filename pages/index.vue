@@ -1,10 +1,13 @@
 <template>
-  <div class="mb-5">
-    <navbar title="SpeckOverflow"/>
-    <div>
-      <div class="ml-5 mr-5" v-for="question in questions" v-bind:key="question.id">
+  <div class="mb-5 ml-5 mr-5">
+    <div v-if="!selectedQuestion">
+      <div v-on:click="selectedQuestion=question" v-for="question in questions" v-bind:key="question.id">
         <question :showFull=false :question=question></question>
       </div>
+    </div>
+    <div v-else>
+      <div class="clickable mt-5" v-on:click="selectedQuestion = null"><b-icon-arrow-left class="h2"></b-icon-arrow-left></div>
+      <question :showFull=true :question=selectedQuestion></question>
     </div>
   </div>
 </template>
@@ -19,14 +22,15 @@ export default {
   },
   data(){
     return {
-      questions: []
+      questions: [],
+      selectedQuestion: null
     }
   },
   methods:{
     getQuestions: async function(){
       const res = await this.$axios.$get('https://my-json-server.typicode.com/leovolk/introduction-to-storybook/questions');
       this.questions = res;
-    }
+    },
   },
   mounted(){
     this.getQuestions()
@@ -35,5 +39,7 @@ export default {
 </script>
 
 <style>
-
+.list{
+  margin: 5% 5% 5% 20%;
+}
 </style>

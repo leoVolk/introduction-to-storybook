@@ -69,11 +69,6 @@ export default {
   align-items: center;
 }
 
-.clickable{
-  user-select: none;
-  :hover{
-    cursor:pointer;
-  }
-}
+
 
 </style>
