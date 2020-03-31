@@ -8,7 +8,7 @@
             <b-icon-arrow-down v-on:click="voteDown()" variant="danger"></b-icon-arrow-down>
           </div>
         </b-col>
-        <b-col>
+        <b-col align-self="center">
           <b-card>
             <b-card-text>
               {{comment.text}}
@@ -26,8 +26,8 @@ export default {
   },
   props:{
     comment: {
-      text: String,
-      upvotes: Number
+      text: 'This is a test',
+      upvotes: 25
     }
   },
   methods: {
@@ -37,6 +37,8 @@ export default {
     voteDown: function(){
       this.comment.upvotes--;
     }
+  },
+  mounted(){
   }
 
 }

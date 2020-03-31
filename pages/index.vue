@@ -1,47 +1,39 @@
 <template>
-  <div>
+  <div class="mb-5">
     <navbar title="SpeckOverflow"/>
+    <div>
+      <div class="ml-5 mr-5" v-for="question in questions" v-bind:key="question.id">
+        <question :showFull=false :question=question></question>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navigation/Navbar.vue';
+import Question from '@/components/Containers/Question.vue';
 export default {
   components: {
-    Navbar
+    Navbar,
+    Question
+  },
+  data(){
+    return {
+      questions: []
+    }
+  },
+  methods:{
+    getQuestions: async function(){
+      const res = await this.$axios.$get('https://my-json-server.typicode.com/leovolk/introduction-to-storybook/questions');
+      this.questions = res;
+    }
+  },
+  mounted(){
+    this.getQuestions()
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

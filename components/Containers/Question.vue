@@ -11,8 +11,9 @@
         </b-col>
         <b-col>
           <b-card v-bind:title="question.title">
+            <hr>
             <div style="display: inline-flex" v-for="categorie in question.categories" v-bind:key="categorie">
-              <b-card-sub-title><b-badge>{{categorie}}</b-badge></b-card-sub-title>
+              <b-card-sub-title class="mb-3 mr-2"><b-badge>{{categorie}}</b-badge></b-card-sub-title>
             </div>
             <b-card-text>
               {{question.description}}
@@ -39,23 +40,9 @@ export default {
     Comment
   },
   props:{
-    showFull: Boolean
-  },
-  data(){
-    return{
-      question: {
-        title: 'This is a question',
-        description: 'Bacon ipsum dolor amet strip steak swine pork venison prosciutto ham tail shoulder biltong chislic pig pork loin filet mignon pancetta. Prosciutto corned beef buffalo, beef ribs fatback shank porchetta drumstick.',
-        upvotes: Number,
-        categories: ['Meat', 'Sausage', 'Raw'],
-        comments: [
-          {text: 'Test text', upvotes: 21},
-          {text: 'Test text', upvotes: 22},
-          {text: 'Test text', upvotes: 23},
-          {text: 'Test text', upvotes: 24}
-        ]
-      }
-    }
+    showFull: Boolean,
+    index: Number,
+    question: {}
   },
   methods: {
     voteUp: function(){
@@ -63,13 +50,11 @@ export default {
     },
     voteDown: function(){
       this.question.upvotes--;
-    },
-    init: function(){
-      this.question.upvotes = Math.floor(Math.random()*100);
     }
   },
   mounted(){
-    this.init();
+    // this.getComment();
+    // this.question.upvotes =  this.randomUpvotes();
   }
 }
 </script>
