@@ -3,12 +3,13 @@
     <b-container style="text-align: left;">
       <b-row>
         <b-col>
-          <b-card class="shadows" header="Login To Your Account" header-bg-variant="dark" border-variant="dark" header-text-variant="white">
+          <b-card class="shadows" header="Register a new Account" header-bg-variant="dark" border-variant="dark" header-text-variant="white">
             <b-form>
               <b-form-group
                 id="input-group-1"
                 label="Email address:"
                 label-for="input-1"
+                description="We'll never share your email with anyone else."
               >
                 <b-form-input
                   id="input-1"
@@ -25,7 +26,17 @@
                   v-model="form.password"
                   required
                   type="password"
-                  placeholder="Enter passwrod"
+                  placeholder="Enter password"
+                ></b-form-input>
+              </b-form-group>
+
+              <b-form-group id="input-group-2"  label-for="input-2">
+                <b-form-input
+                  id="input-2"
+                  v-model="form.passwordRepeat"
+                  required
+                  type="password"
+                  placeholder="Repeat password"
                 ></b-form-input>
               </b-form-group>
 
@@ -45,7 +56,8 @@
       return {
         form: {
           email: '',
-          password: ''
+          password: '',
+          passwordRepeat: ''
         }
       }
     },
