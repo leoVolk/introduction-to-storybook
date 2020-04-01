@@ -2,7 +2,7 @@
   <div class="mt-4">
     <b-container fluid>
       <b-row>
-        <b-col align-self="center" sm="1">
+        <b-col v-if="showFull" align-self="center" sm="1">
           <div class="clickable h3" style="text-align: center;">
             <b-icon-arrow-up  v-on:click="voteUp()" variant="success"></b-icon-arrow-up>
             <br> {{question.upvotes}} <br>
@@ -10,7 +10,8 @@
           </div>
         </b-col>
         <b-col>
-          <b-card v-bind:title="question.title">
+          <b-card>
+            <b-card-title>{{question.title}}</b-card-title>
             <hr>
             <div style="display: inline-flex" v-for="categorie in question.categories" v-bind:key="categorie">
               <b-card-sub-title class="mb-3 mr-2"><b-badge>{{categorie}}</b-badge></b-card-sub-title>
@@ -41,7 +42,7 @@ export default {
   },
   props:{
     showFull: Boolean,
-    index: Number,
+    id: Number,
     question: {}
   },
   methods: {

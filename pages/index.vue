@@ -1,13 +1,9 @@
 <template>
-  <div class="mb-5 ml-5 mr-5">
-    <div v-if="!selectedQuestion">
-      <div v-on:click="selectedQuestion=question" v-for="question in questions" v-bind:key="question.id">
+  <div class="mb-5 list">
+    <div v-for="(question, index) in questions" v-bind:key="question.id">
+      <nuxt-link style="text-decoration: none; color: black;" :to="{ name: 'question', params: { id: index+1 }}">
         <question :showFull=false :question=question></question>
-      </div>
-    </div>
-    <div v-else>
-      <div class="clickable mt-5" v-on:click="selectedQuestion = null"><b-icon-arrow-left class="h2"></b-icon-arrow-left></div>
-      <question :showFull=true :question=selectedQuestion></question>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -22,8 +18,7 @@ export default {
   },
   data(){
     return {
-      questions: [],
-      selectedQuestion: null
+      questions: []
     }
   },
   methods:{
@@ -38,8 +33,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .list{
-  margin: 5% 5% 5% 20%;
+  margin: 0% 5% 5% 20%;
+  text-decoration: none;
+  color: black;
+  &hover{
+    text-decoration: none;
+    color: black;
+  }
 }
 </style>
