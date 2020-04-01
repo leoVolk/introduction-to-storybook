@@ -1,8 +1,7 @@
 import Navbar from '@/components/Navigation/Navbar';
 
 export default {
-  title: 'Navigation',
-  component: Navbar
+  title: 'Navigation'
 }
 
 export const TopNavigationBar = () => ({

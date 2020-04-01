@@ -2,8 +2,7 @@ import LoginForm from '@/components/Forms/Login';
 import RegisterForm from '@/components/Forms/Register';
 
 export default{
-  title: 'Forms',
-  component: LoginForm, RegisterForm
+  title: 'Forms'
 }
 
 export const Login = () => ({
