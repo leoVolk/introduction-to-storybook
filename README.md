@@ -82,15 +82,15 @@ There are a few different ways to create stories.
 You can create either one story per component, one story for all your components or stories for different types of components (e.g. you have 3 types of components and write one story containing all three components). We will stick to the letter.
 For this project, I created a few components we can use to test storybook. You can find these components in the _``/components``_ folder in the root directory.
 
-Our stories will be stored in the _`stories`_ folder. So, without further ado, let write our first story!
+Our stories will be stored in the _`stories`_ folder. So, without further ado, let's write our first story!
 
-Lets start with creating a story for our Container components: a question component and a comment component. First - Import the components we will use:
+Let's start by creating a story for our container components: a question component and a comment component. First - Import the components we will use:
 ````bash
 import CommentContainer from '@/components/Containers/Comment';
 import QuestionContainer from '@/components/Containers/Question';
 ````
 
-Now we need to define and export a default story, so storybook knows what to do:
+Now we need to define and export a default story:
 
 ````bash
 # title will set the name for the stories
@@ -124,7 +124,7 @@ const commentedQuestion= {
 const defaultComment= {text: 'This is a test',upvotes: 25 };
 ````
 
-With our data defined, we can now turn to define our story components. We will create three different stories. One for a question without comments, one for a question with and one for comment. Here is the code for the first component story:
+With our data defined, we can now turn to define our story components. We will create three different stories. One for a question without comments, one for a question with and one for a comment. Here is the code for the first component story:
 
 ````bash
 # export a component story
